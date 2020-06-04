@@ -29,6 +29,17 @@ class App extends Component {
         <Card data={this.state.data} />
         <Country handleCountryChange={this.handleCountryChange} />
         <Graph data={this.state.data} country={this.state.country} />
+        <div className="ui vertical footer segment">
+          <div>
+            Made with <i className="heart icon"></i> by{" "}
+            <a
+              href="https://www.linkedin.com/in/deepak-kumar-dash-14a293176/"
+              target="blank"
+            >
+              Deepak Kumar Dash
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
