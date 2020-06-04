@@ -4,8 +4,13 @@ import "./App.css";
 import Card from "./components/Cards";
 import Country from "./components/Country";
 import Graph from "./components/Graph";
+import { fetchData } from "./api/Mathdro";
 
 class App extends Component {
+  async componentDidMount() {
+    const data = await fetchData();
+    console.log(data);
+  }
   render() {
     return (
       <div className="centered">
