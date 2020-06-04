@@ -7,15 +7,19 @@ import Graph from "./components/Graph";
 import { fetchData } from "./api/Mathdro";
 
 class App extends Component {
+  state = {
+    data: {}
+  };
+
   async componentDidMount() {
-    const data = await fetchData();
-    console.log(data);
+    const extractedData = await fetchData();
+    this.setState({ data: extractedData });
   }
   render() {
     return (
       <div className="centered">
         <h1>My App</h1>
-        <Card />
+        <Card data={this.state.data} />
         <Country />
         <Graph />
       </div>
