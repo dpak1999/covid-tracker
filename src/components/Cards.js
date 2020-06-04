@@ -1,13 +1,18 @@
 import React from "react";
+import CountUp from "react-countup";
 
-const Cards = props => {
-  console.log(props);
+const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  if (!confirmed) {
+    return "Loading...";
+  }
   return (
     <div className="ui three stackable cards">
       <div className="ui card">
         <div className="content">
           <div className="header">INFECTED</div>
-          <div className="meta">data</div>
+          <div className="meta">
+            <h4>{confirmed.value}</h4>
+          </div>
           <div className="meta">date</div>
           <div className="description">
             <p>No of people infected</p>
