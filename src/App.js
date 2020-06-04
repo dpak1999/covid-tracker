@@ -6,6 +6,8 @@ import Country from "./components/Country";
 import Graph from "./components/Graph";
 import { fetchData } from "./api/Mathdro";
 
+import coronaImage from "./images/covid.png";
+
 class App extends Component {
   state = {
     data: {},
@@ -23,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="centered">
+        <img src={coronaImage} alt="COVID-19" />
         <Card data={this.state.data} />
         <Country handleCountryChange={this.handleCountryChange} />
         <Graph data={this.state.data} country={this.state.country} />
