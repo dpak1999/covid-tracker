@@ -8,19 +8,22 @@ import { fetchData } from "./api/Mathdro";
 
 class App extends Component {
   state = {
-    data: {}
+    data: {},
+    country: ""
   };
 
   async componentDidMount() {
     const extractedData = await fetchData();
     this.setState({ data: extractedData });
   }
+  handleCountryChange = async country => {
+    console.log(country);
+  };
   render() {
     return (
       <div className="centered">
-        <h1></h1>
         <Card data={this.state.data} />
-        <Country />
+        <Country handleCountryChange={this.handleCountryChange} />
         <Graph />
       </div>
     );

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { countries } from "../api/Mathdro";
 import "./styles.css";
 
-const Country = () => {
+const Country = ({ handleCountryChange }) => {
   const [AllCountries, setAllCountries] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,11 @@ const Country = () => {
         <div className="ui form">
           <div className="field">
             <label>Country</label>
-            <select className="ui search dropdown">
+            <select
+              defaultValue=""
+              onChange={event => handleCountryChange(event.target.value)}
+              className="ui search dropdown"
+            >
               <option value="">Select Country</option>
               {AllCountries.map((country, i) => (
                 <option key={i} value={country}>
