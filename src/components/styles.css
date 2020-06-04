@@ -21,3 +21,7 @@
   justify-content: center;
   width: 75%;
 }
+.country-form {
+  width: 30%;
+  margin-bottom: 30px !important;
+}

@@ -16,10 +16,9 @@ const Country = ({ handleCountryChange }) => {
 
   return (
     <div>
-      <form>
+      <form className="country-form">
         <div className="ui form">
           <div className="field">
-            <label>Country</label>
             <select
               defaultValue=""
               onChange={event => handleCountryChange(event.target.value)}
