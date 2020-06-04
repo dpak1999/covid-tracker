@@ -1,13 +1,15 @@
 import React from "react";
 import CountUp from "react-countup";
 
+import "./styles.css";
+
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   if (!confirmed) {
     return "Loading...";
   }
   return (
-    <div className="ui three stackable cards">
-      <div className="ui card">
+    <div className="ui three stackable cards container-main">
+      <div className="ui card infected container-cards">
         <div className="content">
           <div className="header">INFECTED</div>
           <div className="header">
@@ -29,7 +31,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         </div>
       </div>
 
-      <div className="ui card">
+      <div className="ui card recovered container-cards">
         <div className="content">
           <div className="header">RECOVERED</div>
           <div className="header">
@@ -51,7 +53,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
         </div>
       </div>
 
-      <div className="ui card">
+      <div className="ui card death container-cards">
         <div className="content">
           <div className="header">DEATHS</div>
           <div className="header">
