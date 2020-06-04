@@ -18,14 +18,14 @@ class App extends Component {
   }
   handleCountryChange = async country => {
     const fetchedData = await fetchData(country);
-    this.setState({ data: fetchedData });
+    this.setState({ data: fetchedData, country: country });
   };
   render() {
     return (
       <div className="centered">
         <Card data={this.state.data} />
         <Country handleCountryChange={this.handleCountryChange} />
-        <Graph />
+        <Graph data={this.state.data} country={this.state.country} />
       </div>
     );
   }

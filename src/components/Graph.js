@@ -4,15 +4,15 @@ import { Bar, Line } from "react-chartjs-2";
 import "./styles.css";
 import { getDailyData } from "../api/Mathdro";
 
-const Graph = () => {
+const Graph = ({ data: { confirmed, deaths, recovered }, country }) => {
   const [dailyData, setDailyData] = useState([]);
+
   useEffect(() => {
     const Api = async () => {
       setDailyData(await getDailyData());
     };
-    // console.log(dailyData);
     Api();
-  });
+  }, []);
 
   const lineChart = dailyData.length ? (
     <Line
@@ -37,7 +37,32 @@ const Graph = () => {
     />
   ) : null;
 
-  return <div className="graph-container">{lineChart}</div>;
+  const barChart = confirmed ? (
+    <Bar
+      data={{
+        labels: ["Infected", "Recovered", "Deaths"],
+        datasets: [
+          {
+            label: "People",
+            backgroundColor: [
+              "rgba(0,0,255,0.5)",
+              "rgba(0,255,0,0.5)",
+              "rgba(255,0,0,0.5)"
+            ],
+            data: [confirmed.value, recovered.value, deaths.value]
+          }
+        ]
+      }}
+      options={{
+        legend: { display: false },
+        title: { display: true, text: `Current state in ${country}` }
+      }}
+    />
+  ) : null;
+
+  return (
+    <div className="graph-container">{country ? barChart : lineChart}</div>
+  );
 };
 
 export default Graph;
