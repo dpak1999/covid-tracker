@@ -14,16 +14,21 @@ const Country = () => {
     allCountries();
   }, [setAllCountries]);
 
-  console.log(AllCountries);
-
   return (
     <div>
       <form>
-        <div className="ui fluid search selection dropdown">
-          <input type="hidden" name="country" />
-          <i className="dropdown icon" />
-          <div className="default text">Select Country</div>
-          <div className="menu"></div>
+        <div className="ui form">
+          <div className="field">
+            <label>Country</label>
+            <select className="ui search dropdown">
+              <option value="">Select Country</option>
+              {AllCountries.map((country, i) => (
+                <option key={i} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </form>
     </div>
