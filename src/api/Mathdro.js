@@ -15,3 +15,10 @@ export const fetchData = async () => {
     return requiredData;
   } catch (error) {}
 };
+
+export const getDailyData = async () => {
+  try {
+    const { data } = await axios.get(`${apiUrl}/daily`);
+    console.log(data);
+  } catch (error) {}
+};
