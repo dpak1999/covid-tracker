@@ -25,3 +25,15 @@
   width: 30%;
   margin-bottom: 30px !important;
 }
+
+@media only screen and (max-width: 770px) {
+  .container-cards {
+    margin: 2% 0 !important;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .graph-container {
+    width: 100%;
+  }
+}
