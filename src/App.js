@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="centered">
-        <h1>My App</h1>
+        <h1></h1>
         <Card data={this.state.data} />
         <Country />
         <Graph />
